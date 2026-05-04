@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="1" failures="0" errors="0" time="0.303">
+  <testsuite name="Teste para ver se API está ok (Saude)" errors="0" failures="0" skipped="0" timestamp="2026-05-04T19:49:22" time="0.244" tests="1">
+    <testcase classname="Teste para ver se API está ok (Saude) Deve retorna 200 e status ok" name="Teste para ver se API está ok (Saude) Deve retorna 200 e status ok" time="0.014">
+    </testcase>
+  </testsuite>
+</testsuites>
