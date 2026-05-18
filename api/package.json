@@ -1,34 +1,28 @@
 {
-  "name": "teste_jest_selenium",
+  "name": "ti323_teste_jest_selenium",
   "version": "1.0.0",
-  "description": "Respositório para desenvolvimento da disciplina de TI323 (CICD com testes)",
+  "description": "Repositório para desenvolvimento da disciplina TI323 (CICD com testes)",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
     "test": "jest --coverage --verbose --ci --reporters=default --testResultsProcessor=jest-junit"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cc25729/teste_jest_selenium.git"
+    "url": "git+https://github.com/JG-500/TI323_teste_jest_selenium.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/cc25729/teste_jest_selenium/issues"
+    "url": "https://github.com/JG-500/TI323_teste_jest_selenium/issues"
   },
-  "homepage": "https://github.com/cc25729/teste_jest_selenium#readme",
+  "homepage": "https://github.com/JG-500/TI323_teste_jest_selenium#readme",
   "dependencies": {
-    "body-parser": "^2.2.2",
     "cors": "^2.8.6",
-    "ejs": "^5.0.2",
     "express": "^5.2.1",
-    "express-session": "^1.19.0",
-    "helmet": "^8.1.0",
-    "node-fetch": "^3.3.2",
-    "nodemon": "^3.1.14"
+    "helmet": "^8.1.0"
   },
   "devDependencies": {
     "jest": "^30.3.0",
