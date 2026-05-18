@@ -20,4 +20,24 @@ app.get('/health',(req, res ) =>{
     )
 })
 
+
+app.post('/api/calcular', (req, res) =>{
+    const dados = req.body;
+
+    if(!dados || typeof dados !== 'object'){
+        return res.status(400).json({error:'Cospo da requisição está errado'})
+    }
+
+    const{altura = 0, largura = 0,} = dados
+    if(altura <= 0)throw new Error('Altura com valor errado')
+    if(largura <= 0) throw new Error('')
+})
+
+
+
+
+
+
+
+
 module.exports = app;

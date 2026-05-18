@@ -1,49 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculo</title>
 </head>
 <body>
+
     <nav>
         <div>
-            Olá, <strong><%= use.nome %></strong>
+            Olá, <strong><%= user.nome %></strong>
             <a href="/logout">Sair</a>
         </div>
     </nav>
-    <form method="POST" action="/calculo" id="calculoForm">
+
+    <form id="calculoForm">
         <div>
-            <label for="altura">altura</label>
-            <input type="text" id="altura" name="altura"
-            placeholder="Digita altura" required>
+            <label for="altura">Altura</label>
+            <input 
+                type="text" 
+                id="altura" 
+                name="altura"
+                placeholder="Digite altura" 
+                required
+            >
         </div>
+
         <div>
             <label for="largura">Largura</label>
-            <input type="text" id="largura" name="largura"
-            placeholder="Digita largura" required>
+            <input 
+                type="text" 
+                id="largura" 
+                name="largura"
+                placeholder="Digite largura" 
+                required
+            >
         </div>
-    </form>
-    <button id="btnCalcular" onclick="calcular()">Calcular</button>
-    <div></div><br>
-    <div><span>Resultado</span> <span id="data"></span></div>
-</body>
-    <script>
-        const alturaF = parseFloat(document.getElementById('altura').value)
-        const larguraF = parseFloat(document.getElementById('largura').value)
 
-        const payload = {
-            altura : alturaF,
-            largura: larguraF
-        }
-        try{
-            const res = await fetch('/calculo', {
-                method: 'POST',
-                headers:{'Content-Type': 'aplication/json'},
-                body: JSON.stringify(payload)
+        <button type="submit">Calcular</button>
+    </form>
+
+    <br>
+
+    <div>
+        <span>Resultado:</span>
+        <span id="data"></span>
+    </div>
+
+    <script>
+
+        document
+            .getElementById('calculoForm')
+            .addEventListener('submit', async function(event){
+
+                event.preventDefault()
+
+                const alturaF = parseFloat(
+                    document.getElementById('altura').value
+                )
+
+                const larguraF = parseFloat(
+                    document.getElementById('largura').value
+                )
+
+                const payload = {
+                    altura: alturaF,
+                    largura: larguraF
+                }
+
+                try {
+
+                    const res = await fetch('/calculo', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    })
+
+                    const json = await res.json()
+
+                    if(!json.success){
+                        alert('Erro: ' + json.error)
+                        return
+                    }
+
+                    document.getElementById('data').innerText = json.resultado
+
+                } catch(err){
+                    console.error(err)
+                    alert('Erro no servidor')
+                }
+
             })
-            const json = await res.json()
-            if(!json.sucess) { alert('Erro'+ json.error)}
-        }
+
     </script>
+
+</body>
 </html>
